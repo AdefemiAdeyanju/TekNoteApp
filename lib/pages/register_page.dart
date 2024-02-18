@@ -3,17 +3,24 @@ import 'package:flutter/material.dart';
 import '../utils/input_text.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+  
+  RegisterPage({super.key});
+
+  final _usernameController =TextEditingController();
+  final  _emailController =TextEditingController();
+  final  _passwordController =TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    
+    return Scaffold(
       backgroundColor:Colors.white,
       body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-              children: [SizedBox(height: 10,),
-                Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [const SizedBox(height: 10,),
+                const Row(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                         Text('Create',
                         style:TextStyle(
@@ -32,14 +39,27 @@ class RegisterPage extends StatelessWidget {
                       ),)
                     ],
                   ),
-                  Text('Kindly create an account with us at TekNote'),
+                  const Text('Kindly create an account with us at TekNote'),
             
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
             
                   
             
                   //Username,Email,Password
-                  InputText(),
+                  InputText(
+                    controller: _usernameController,
+                    labelText: 'Full Name',
+                    obscureText: false,),
+
+                  InputText(
+                    controller: _emailController,
+                    labelText: 'E-mail',
+                    obscureText: false,),
+
+                  InputText(
+                    controller: _passwordController,
+                    labelText: 'Password',
+                    obscureText: true,)
             
             
               ],

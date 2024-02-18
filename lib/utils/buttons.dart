@@ -17,7 +17,7 @@ class Buttons extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: (){
                     Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => const RegisterPage())));
+                    MaterialPageRoute(builder: ((context) => RegisterPage())));
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size.fromHeight(50),

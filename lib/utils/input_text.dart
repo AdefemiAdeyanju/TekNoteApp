@@ -2,26 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:teknote/pages/login_page.dart';
 
 class InputText extends StatefulWidget {
-  const InputText({super.key});
+ const InputText({
+  super.key,
+  required this.controller,
+  required this.labelText,
+  required this.obscureText});
 
   @override
   State<InputText> createState() => _InputTextState();
+  final dynamic controller;
+  final String labelText;
+  final bool obscureText;
 }
 
 class _InputTextState extends State<InputText> {
-  final TextEditingController _usernameController =TextEditingController();
-  final TextEditingController _emailController =TextEditingController();
-  final TextEditingController  _passwordController =TextEditingController();
-
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -29,10 +23,11 @@ class _InputTextState extends State<InputText> {
             padding: const EdgeInsets.fromLTRB(20,0,20,0),
             child: Column(
               children: [
-                TextField(
+
+                //Full Name
+                const TextField(
                   keyboardType: TextInputType.name,
-                  controller: _usernameController,
-                  decoration: const InputDecoration(contentPadding: EdgeInsets.all(10.0),
+                  decoration: InputDecoration(contentPadding: EdgeInsets.all(10.0),
                     fillColor: Colors.white,
                     labelText: 'Full Name',
                     border: OutlineInputBorder(
@@ -43,11 +38,10 @@ class _InputTextState extends State<InputText> {
              
              //E-mail
               const SizedBox(height: 20,),
-              TextField(
+              const TextField(
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
-                controller: _emailController,
-                decoration: const InputDecoration(contentPadding: EdgeInsets.all(10.0),
+                decoration: InputDecoration(contentPadding: EdgeInsets.all(10.0),
                   fillColor:Colors.white,
                   labelText: 'E-mail',
                   border: OutlineInputBorder(
@@ -55,12 +49,12 @@ class _InputTextState extends State<InputText> {
                     ),
                     borderSide: BorderSide(color: Colors.black))
                   )),
+              
               //Password
               const SizedBox(height: 20),
-              TextField(
+              const TextField(
                 obscureText: true,
-                controller: _passwordController,
-                decoration: const InputDecoration(contentPadding: EdgeInsets.all(10.0),
+                decoration: InputDecoration(contentPadding: EdgeInsets.all(10.0),
                   fillColor: Colors.white,
                   labelText: 'Password',
                   border: OutlineInputBorder(

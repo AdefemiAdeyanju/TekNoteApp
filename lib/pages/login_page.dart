@@ -3,15 +3,15 @@ import 'package:teknote/pages/home_page.dart';
 import 'package:teknote/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final  _emailController = TextEditingController();
+  final  _passwordController = TextEditingController();
 
   //Visibility Icon
   bool _obscureText = true;
@@ -124,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(right:20),
                       child: ElevatedButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder:
-                        (context) => const RegisterPage()));
+                        (context) => RegisterPage()));
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size.fromHeight(50),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/pages/home_page.dart';
 import 'package:teknote/pages/register_page.dart';
+import 'package:teknote/utils/input_text.dart';
 
 class LoginPage extends StatefulWidget {
 const LoginPage({super.key});
@@ -30,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 10),
               child: Align(alignment: Alignment.topLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -55,42 +56,34 @@ class _LoginPageState extends State<LoginPage> {
                   const Text('Enter Your Details Below'),
         
                   const SizedBox(height: 25,),
-        
-                  Padding(
-                    padding: const EdgeInsets.only(right : 20),
-                    child: TextField(controller: _emailController,
-                    keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: 'E-mail',
-                        contentPadding: const EdgeInsets.all(10),
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        )
-                      ),
-                    ),
-                  ),
-        
-                  const SizedBox(height: 25,),
+
+                  //Email
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
-                    child: TextField(controller: _passwordController,
+                    child: InputText(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: _emailController,
+                    labelText: 'E-mail',
+                    obscureText: false,
+                    suffixIcon: null,),
+                  ),
+                  const SizedBox(height: 20,),
+
+                  //Password
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: InputText(
+                    keyboardType: TextInputType.visiblePassword,
+                    controller: _passwordController,
+                    labelText: 'Password',
                     obscureText: _obscureText,
-                    decoration: InputDecoration(contentPadding: const EdgeInsets.all(10),
-                      labelText: 'Password',
-                      suffixIcon: IconButton(
-                        icon: _obscureText ?
-                        const Icon(Icons.visibility):const Icon(Icons.visibility_off),
-                        onPressed: () {
-                          setState(() {
-                            _obscureText = !_obscureText;
-                          });
-                        },),
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5))
-                      
-                    ),),
+                    suffixIcon: IconButton(icon: _obscureText? 
+                        const Icon(Icons.visibility) : const Icon(Icons.visibility_off),
+                    onPressed: (){
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },),),
                   ),
         
                   const SizedBox(height: 30,),
@@ -124,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(right:20),
                       child: ElevatedButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder:
-                        (context) => RegisterPage()));
+                        (context) => const RegisterPage()));
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size.fromHeight(50),

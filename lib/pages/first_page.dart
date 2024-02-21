@@ -45,7 +45,8 @@ class FirstPage extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.blue,
                     fontSize: 12,
-                  ),)
+                  ),
+                  ),
                   ],
                 ),
 
@@ -69,8 +70,7 @@ class FirstPage extends StatelessWidget {
                         ),
                         
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.0)
-                          ,
+                          padding: EdgeInsets.symmetric(horizontal: 10.0),
                           child: Text('Or',
                           style: TextStyle(color: Colors.black)),
                         ),

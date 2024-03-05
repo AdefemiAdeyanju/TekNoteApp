@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teknote/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           builder: (context) {
             return IconButton(
                 onPressed: () {
-                  Scaffold.of(context).openDrawer();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
                 },
                 icon: const CircleAvatar(
                   backgroundImage: AssetImage('lib/images/apple.jpg'),

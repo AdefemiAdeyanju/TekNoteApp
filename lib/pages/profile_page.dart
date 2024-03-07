@@ -12,11 +12,33 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(223, 255, 255, 255),
         title: const Text(
           'Profile',
-          textAlign: TextAlign.center,
         ),
+        centerTitle: true
       ),
       body: ListView(
-        children: const [
+        children: const [SizedBox(height: 10 ,),
+          Center(
+            child: Row(
+              children: [CircleAvatar(radius: 50,
+              backgroundImage:AssetImage('lib/images/apple.jpg',  ),
+               ),
+              SizedBox(width: 10,),
+                Column(crossAxisAlignment:CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children:[
+                      Text('Ajani Ben D.',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                    
+                        Text('@username',
+                        style: TextStyle(
+                        fontSize: 9,
+                          ),),]),
+              ],
+            ),
+          ),
           SizedBox(
             height: 15,
           ),
@@ -48,7 +70,7 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 10,),
 
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 15),
             child: Text('Company Profile'),
           ),
 
@@ -57,7 +79,56 @@ class ProfilePage extends StatelessWidget {
               text2: 'Business E-mail',
               text3: 'abc@gamil.com',
               icon: null),
+          ProfileCard(
+              text1: '',
+              text2: 'Company Address(Physical/Online)',
+              text3: 'www.speakafica.io',
+              icon: null),
+          ProfileCard(
+              text1: '',
+              text2: 'Business Industry',
+              text3: 'IT services',
+              icon: Icons.list),
+          ProfileCard(
+              text1: '',
+              text2: 'Location',
+              text3: 'Lagos, Nigeria',
+              icon: Icons.list),
+          ProfileCard(
+              text1: '',
+              text2: 'Number of Employees',
+              text3: '1-6',
+              icon: Icons.list),
 
+
+          SizedBox(height: 10,),
+
+          Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Text('Others'),
+          ),
+
+          ProfileCard(
+              text1: '',
+              text2: 'Password',
+              text3: '',
+              icon: null),
+          
+          ProfileCard(
+              text1: '',
+              text2: 'Signature',
+              text3: '',
+              icon: null),
+          ProfileCard(
+              text1: '',
+              text2: 'Log out',
+              text3: '',
+              icon: null),
+          ProfileCard(
+              text1: '',
+              text2: 'Language',
+              text3: 'English',
+              icon: Icons.list),
         ],
       ),
     );

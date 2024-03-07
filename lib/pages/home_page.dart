@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/pages/profile_page.dart';
+import 'package:teknote/utils/home_component.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,20 +29,25 @@ class _HomePageState extends State<HomePage> {
           builder: (context) {
             return IconButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfilePage(),));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ProfilePage(),
+                      ));
                 },
                 icon: const CircleAvatar(
                   backgroundImage: AssetImage('lib/images/apple.jpg'),
                 ));
           },
         ),
-     actions: [IconButton(
-      onPressed: (){},
-      icon: const Icon(Icons.contact_support)),
+        // Contact Support Icon
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.contact_support)),
 
-      IconButton(onPressed: (){},
-      icon: const Icon(Icons.notifications)),
-     ], ),
+          //Notification Icon
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
+        ],
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -51,68 +57,29 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      height: 120,
-                      width: 350,
-                      child: const Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                Text(
-                                  'Templates',
-                                  style: TextStyle(
-                                      fontSize: 15, color: Colors.purple),
-                                ),
-                                Text('asddffg'),
-                                
-                                Text(
-                                  'aasss',
-                                  style: TextStyle(
-                                      backgroundColor: Colors.grey,
-                                      color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  HomeComponent(
+                      text1: 'Templates',
+                      text2: 'Create a template here',
+                      image: 'lib/images/apple.jpg',
+                      onPressed: (){}),
+                      
                   const SizedBox(
                     height: 50,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(5)),
-                      height: 120,
-                      width: 350,
-                    ),
-                  ),
+                  HomeComponent(
+                      text1: 'Create Form',
+                      text2: 'Create a form here',
+                      image: 'lib/images/apple.jpg',
+                      onPressed: (){}),
+
                   const SizedBox(
                     height: 50,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)),
-                        height: 120,
-                        width: 350),
-                  ),
+                  HomeComponent(
+                      text1: 'Create Document',
+                      text2: 'Create a document here',
+                      image: 'lib/images/apple.jpg',
+                      onPressed: (){}),
                 ],
               ),
             ),
@@ -130,7 +97,9 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.access_time), label: 'Recent'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.description_outlined), label: 'Document'),
+            icon: Icon(Icons.description_outlined),
+            label: 'Document',
+          ),
           //BottomNavigationBarItem(icon: Icon(Icons.settings),
           //label: 'Se'),
         ],

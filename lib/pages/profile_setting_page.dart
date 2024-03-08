@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teknote/utils/profile_card.dart';
+import 'package:teknote/utils/profile_page_card.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -7,9 +7,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(223, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 215, 218, 221),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(223, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 215, 218, 221),
         title: const Text(
           'Profile',
         ),

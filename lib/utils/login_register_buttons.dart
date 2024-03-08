@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/pages/login_page.dart';
-import 'package:teknote/pages/register_page.dart';
+import 'package:teknote/pages/registration_page.dart';
 
 class Buttons extends StatelessWidget {
   const Buttons({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../utils/buttons.dart';
-import '../utils/more_buttons.dart';
+import '../utils/login_register_buttons.dart';
+import '../utils/first_page_buttons.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});

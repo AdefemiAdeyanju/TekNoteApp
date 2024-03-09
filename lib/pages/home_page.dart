@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/pages/document_page.dart';
-import 'package:teknote/utils/create_document.dart';
+import 'package:teknote/pages/create_document.dart';
 import 'package:teknote/utils/create_form.dart';
 import 'package:teknote/pages/profile_setting_page.dart';
 import 'package:teknote/utils/home_component.dart';
@@ -44,24 +44,27 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 215, 218, 221),
       appBar: AppBar(
+        title: const Text('Home'),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 215, 218, 221),
-        leading: GestureDetector(onTap: () => const ProfilePage(),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(5),
-                            image: const DecorationImage(
-                              image: AssetImage('lib/images/apple.jpg'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+        leading: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left:10),
+              child: Container(
+                margin: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.asset('lib/images/apple.jpg',
+                  width: 30,
+                  height:40,
+                  fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            
+          ],
+        ),
         // Contact Support Icon
         actions: [
           IconButton(

@@ -20,7 +20,8 @@ class ProfilePage extends StatelessWidget {
           Center(
             child: Row(
               children: [CircleAvatar(radius: 50,
-              backgroundImage:AssetImage('lib/images/apple.jpg',  ),
+              foregroundImage:AssetImage('lib/images/apple.jpg',),
+              backgroundColor: Colors.transparent,
                ),
               SizedBox(width: 10,),
                 Column(crossAxisAlignment:CrossAxisAlignment.baseline,

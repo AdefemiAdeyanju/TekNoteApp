@@ -27,7 +27,7 @@ class HomeComponent extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -37,23 +37,26 @@ class HomeComponent extends StatelessWidget {
                     text1,
                     style: const TextStyle(
                       fontSize: 15,
-                      color: Color.fromARGB(255, 30, 115, 184),
+                      color: Color.fromARGB(255, 3, 41, 73),
                     ),
                   ),
                   Text(text2),
+                  const SizedBox(height: 10,),
                   //ElevatedButton
-                  ElevatedButton(
-                    onPressed: onPressed,
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      backgroundColor: Colors.grey,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
+                  SizedBox(height: 35,width: 120,
+                    child: ElevatedButton(
+                      onPressed: onPressed,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Colors.black54,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(3),
+                        ),
                       ),
-                    ),
-                    child: const Text(
-                      'Create',
-                      style: TextStyle(color: Colors.white),
+                      child: const Text(
+                        'Create',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/pages/share_page.dart';
+import 'package:teknote/utils/create_document_input.dart';
 
 class CreateDoc extends StatelessWidget {
   const CreateDoc({super.key});
@@ -44,7 +45,8 @@ class CreateDoc extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomRight,
             child: FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {Navigator.push(context, MaterialPageRoute(
+                builder:(context) => const DocInput() ));},
               elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
@@ -98,28 +100,28 @@ void _showBottomSheet(BuildContext context) {
                         height: 10,
                       ),
                       const Text(
-                        'E-Signing',
+                        'Manage Access',
                         style: TextStyle(color: Colors.blue),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const Text(
-                        'E-Signing',
+                        'Make available offline',
                         style: TextStyle(color: Colors.blue),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const Text(
-                        'E-Signing',
+                        'Download',
                         style: TextStyle(color: Colors.blue),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const Text(
-                        'E-Signing',
+                        'Make a Copy',
                         style: TextStyle(color: Colors.blue),
                       ),
                     ]),

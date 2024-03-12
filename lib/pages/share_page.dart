@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teknote/utils/profile_page_card.dart';
+import 'package:teknote/utils/radio_button.dart';
 
 class SharePage extends StatelessWidget {
   const SharePage({super.key});
@@ -46,7 +47,10 @@ class SharePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            
+            const MyRadioButton(),
+
+            const SizedBox(height: 20),
+
             Center(
               child: Column(
                 children: [

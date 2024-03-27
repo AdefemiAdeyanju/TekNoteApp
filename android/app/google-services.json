@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "325984933855",
+    "project_id": "teknote-app",
+    "storage_bucket": "teknote-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325984933855:android:034c3b6de2bad3d1f0166a",
+        "android_client_info": {
+          "package_name": "com.example.teknote"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-Hp-B7YvwHp2LOe2Cfg1KQVUz3z7hDao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

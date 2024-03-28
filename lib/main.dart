@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/first_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -18,8 +19,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
       home: const FirstPage(),
-
     );
   }
 }
-

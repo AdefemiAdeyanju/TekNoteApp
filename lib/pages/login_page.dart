@@ -113,11 +113,13 @@ class _LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.only(right: 20.0),
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
-                                ));
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                              (route) => false,
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size.fromHeight(50),

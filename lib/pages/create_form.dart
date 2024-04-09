@@ -36,7 +36,7 @@ class CreateForm extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5))),
                           child: const Text(
-                            'Question',
+                            'Questions',
                             style: TextStyle(fontSize: 12),
                           ),
                         ),

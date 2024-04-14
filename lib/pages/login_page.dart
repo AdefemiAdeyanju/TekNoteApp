@@ -133,17 +133,24 @@ class _LoginPageState extends State<LoginPage> {
                                 final email = _emailController.text;
                                 final password = _passwordController.text;
                                 try {
-                                  final userCredential = await FirebaseAuth
-                                      .instance
+                                  await FirebaseAuth.instance
                                       .signInWithEmailAndPassword(
                                     email: email,
                                     password: password,
                                   );
-                                  print(userCredential);
                                 } on FirebaseAuthException catch (e) {
-                                  if (e.code == 'invalid-credential') {
+                                  if (e.code == 'user-not-found') {
+                                    print('User Not Found');
+                                  } else if (e.code == 'wrong-password') {
+                                    print('Wrong Password');
+                                  } else if (e.code == 'invalid-credential') {
                                     print(
-                                        "Invalid Credential, 'User Not Found'");
+                                        'Wrong Password/E-mail. Please try again');
+                                  } else if (e.code == 'too-many-requests') {
+                                    print(
+                                        'Too Many Requests, Please Try Again Later');
+                                  } else {
+                                    print(e.code);
                                   }
                                 }
                               },

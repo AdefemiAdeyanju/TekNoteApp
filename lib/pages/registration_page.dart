@@ -148,10 +148,16 @@ class _RegisterPageState extends State<RegisterPage> {
                                   email: email,
                                   password: password,
                                 );
-                              } catch (e) {
-                                print('Something bad happened');
-                                print(e.runtimeType);
-                                print(e);
+                              } on FirebaseAuthException catch (e) {
+                                if (e.code == 'email-already-in-use') {
+                                  print('Email Already in Use');
+                                } else if (e.code == 'weak-password') {
+                                  print('Weak Password');
+                                } else if (e.code == 'invalid-email') {
+                                  print('Invalid Email');
+                                } else {
+                                  print(e.code);
+                                }
                               }
                             },
                             style: ElevatedButton.styleFrom(

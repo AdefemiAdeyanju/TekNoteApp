@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:teknote/firebase_options.dart';
 import 'package:teknote/pages/document_page.dart';
 import 'package:teknote/pages/create_document.dart';
 import 'package:teknote/pages/create_form.dart';
@@ -50,19 +53,16 @@ class _HomePageState extends State<HomePage> {
         leading: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left:10),
+              padding: const EdgeInsets.only(left: 10),
               child: Container(
                 margin: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Image.asset('lib/images/apple.jpg',
-                  width: 30,
-                  height:40,
-                  fit: BoxFit.cover),
+                      width: 30, height: 40, fit: BoxFit.cover),
                 ),
               ),
             ),
-            
           ],
         ),
         // Contact Support Icon
@@ -76,62 +76,79 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.notifications),
-          ),  
+          ),
         ],
       ),
-        
-      
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  HomeComponent(
-                      text1: 'Templates',
-                      text2: 'Create a template here',
-                      image: 'lib/images/apple.jpg',
-                      onPressed: () {}),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  HomeComponent(
-                    text1: 'Create Form',
-                    text2: 'Create a form here',
-                    image: 'lib/images/apple.jpg',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CreateForm(),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  HomeComponent(
-                    text1: 'Create Document',
-                    text2: 'Create a document here',
-                    image: 'lib/images/apple.jpg',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CreateDoc(),
-                        ),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ],
+      body: FutureBuilder(
+        future: Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform,
         ),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.done:
+              final user = FirebaseAuth.instance.currentUser;
+              if (user?.emailVerified ?? false) {
+                print('You are a verified user');
+              } else {
+                print('You need to verify your email first');
+              }
+              return SafeArea(
+                child: ListView(
+                  children: [
+                    Center(
+                      child: Column(
+                        children: [
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          HomeComponent(
+                              text1: 'Templates',
+                              text2: 'Create a template here',
+                              image: 'lib/images/apple.jpg',
+                              onPressed: () {}),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          HomeComponent(
+                            text1: 'Create Form',
+                            text2: 'Create a form here',
+                            image: 'lib/images/apple.jpg',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CreateForm(),
+                                ),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          HomeComponent(
+                            text1: 'Create Document',
+                            text2: 'Create a document here',
+                            image: 'lib/images/apple.jpg',
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CreateDoc(),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+
+            default:
+              return const Text('loading');
+          }
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
